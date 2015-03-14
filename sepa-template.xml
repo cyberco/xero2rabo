@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03">
+<CstmrCdtTrfInitn>
+    <GrpHdr>
+        <MsgId>MEDIA-20150313131215-mfPNFsb</MsgId>
+        <CreDtTm>2015-03-13T13:12:15</CreDtTm>
+        <NbOfTxs>1</NbOfTxs>
+        <!--<CtrlSum>300.00</CtrlSum>-->
+        <InitgPty>
+            <Nm>Media2B</Nm>
+        </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+        <PmtInfId>MEDIA-20150313131215-mfPNFsb-1</PmtInfId>
+        <PmtMtd>TRF</PmtMtd>
+        <!--<NbOfTxs>1</NbOfTxs>-->
+        <!--<CtrlSum>300.00</CtrlSum>-->
+        <PmtTpInf>
+            <SvcLvl>
+                <Cd>SEPA</Cd>
+            </SvcLvl>
+        </PmtTpInf>
+        <ReqdExctnDt>2015-03-13</ReqdExctnDt>
+        <Dbtr>
+            <Nm>M2B</Nm>
+            <PstlAdr>
+                <Ctry>NL</Ctry>
+            </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+            <Id>
+                <IBAN>NL28RABO0123</IBAN>
+            </Id>
+        </DbtrAcct>
+        <DbtrAgt>
+            <FinInstnId>
+                <BIC>RABONL2U</BIC>
+            </FinInstnId>
+        </DbtrAgt>
+        <ChrgBr>SLEV</ChrgBr>
+        <CdtTrfTxInf>
+            <PmtId>
+                <EndToEndId>MEDIA-20150313131215-mfPNFsb-1-0001</EndToEndId>
+            </PmtId>
+            <Amt>
+                <InstdAmt Ccy="EUR">300.00</InstdAmt>
+            </Amt>
+            <CdtrAgt>
+                <FinInstnId>
+                    <BIC>RABONL2U</BIC>
+                </FinInstnId>
+            </CdtrAgt>
+            <Cdtr>
+                <Nm>L. de Vries</Nm>
+                <PstlAdr>
+                    <Ctry>NL</Ctry>
+                </PstlAdr>
+            </Cdtr>
+            <CdtrAcct>
+                <Id>
+                    <IBAN>NL23RABO0321</IBAN>
+                </Id>
+            </CdtrAcct>
+            <RmtInf>
+                <Ustrd>Some description</Ustrd>
+            </RmtInf>
+        </CdtTrfTxInf>
+    </PmtInf>
+</CstmrCdtTrfInitn>
+</Document>
+
