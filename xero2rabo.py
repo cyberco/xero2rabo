@@ -36,7 +36,7 @@ def credit_transactions(filename):
     with open(filename, 'rt') as input_file:
         reader = csv.reader(input_file)
         for row in reader:
-            yield {'amount': row[0], 'iban': row[1], 'creditor': row[2], 'descr': row[4]}
+            yield {'amount': row[0], 'iban': row[1], 'creditor_name': row[2], 'descr': row[4]}
 
 
 def process_xml(args):
@@ -92,7 +92,7 @@ def process_xml(args):
         instdAmt.text = tx['amount']
         # Creditor name
         cdtr = elem.find('.//{{{0}}}Cdtr/{{{0}}}Nm'.format(namespace))
-        cdtr.text = tx['creditor']
+        cdtr.text = tx['creditor_name']
         # Creditor IBAN
         cdtr_iban = elem.find('.//{{{0}}}CdtrAcct/{{{0}}}Id/{{{0}}}IBAN'.format(namespace))
         cdtr_iban.text = tx['iban']
