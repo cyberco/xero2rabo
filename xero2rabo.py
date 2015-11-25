@@ -32,7 +32,7 @@ def createMsgId(prefix):
     return id
 
 
-def credit_transactions(filename):
+def get_credit_transactions(filename):
     with open(filename, 'rt') as input_file:
         reader = csv.reader(input_file)
         for row in reader:
@@ -51,6 +51,8 @@ def process_xml(args):
     # Main namespace needed for search
     namespace = namespaces['']
     root = tree.getroot()
+    # Get all transactions
+    credit_transactions = list(get_credit_transactions(args.input_file))
     # Set MsgId
     msgId = root.find('.//{%s}MsgId' % namespace)
     id = createMsgId(args.id_prefix)
@@ -58,6 +60,9 @@ def process_xml(args):
     # Set CreDtTm
     creDtTm = root.find('.//{%s}CreDtTm' % namespace)
     creDtTm.text = now.isoformat().split('.')[0]
+    # Number of trx (NbOfTxs)
+    NbOfTxs = root.find('.//{%s}NbOfTxs' % namespace)
+    NbOfTxs.text = str(len(credit_transactions))
     # Initiating party
     initgPty = root.find('.//{{{0}}}InitgPty/{{{0}}}Nm'.format(namespace))
     initgPty.text = args.initiating_party
@@ -81,7 +86,7 @@ def process_xml(args):
     cdtTrfTxInf = root.find('.//{%s}CdtTrfTxInf' % namespace)
     parent = root.find('.//{%s}PmtInf' % namespace)
     parent.remove(cdtTrfTxInf)
-    for index, tx in enumerate(credit_transactions(args.input_file)):
+    for index, tx in enumerate(credit_transactions):
         elem = copy.deepcopy(cdtTrfTxInf)
         # EndToEndId
         endToEndIdText = id + '-' + str(index).zfill(4)
