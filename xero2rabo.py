@@ -71,8 +71,9 @@ def process_xml(args):
     id += '-1'
     pmtInfId.text = id
     # Reguested execution date
+    # Use today by default
     reqdExctnDt = root.find('.//{%s}ReqdExctnDt' % namespace)
-    reqdExctnDt.text = args.execution_date
+    reqdExctnDt.text = now.date().isoformat()
     # Debtor name
     dbtr = root.find('.//{{{0}}}Dbtr/{{{0}}}Nm'.format(namespace))
     dbtr.text = args.debtor_name
@@ -114,7 +115,6 @@ if __name__ == '__main__':
     parser.add_argument("output_file", help="Output file (xml)")
     parser.add_argument('-id', '--id_prefix', default='', help='5-char prefix for the message ID')
     parser.add_argument('-ip', '--initiating_party', default='', help='Initiating party')
-    parser.add_argument('-ed', '--execution_date', default='', help='Execution data in format: yyyy-mm-dd')
     parser.add_argument('-dn', '--debtor_name', default='', help='Debtor name')
     parser.add_argument('-da', '--debtor_account', default='', help='Debtor account')
     parser.add_argument('-db', '--debtor_bic', default='', help='Debtor BIC')

@@ -1,2 +1,2 @@
 #!/bin/sh
-python xero2rabo.py -id 'MEDIA' -ip 'InitParty' -ed '2015-04-01' -dn 'Debtor' -da 'NL28RABO0etc' -db 'RABONO2U' input-example.csv tmp.xml
+python xero2rabo.py -id 'MEDIA' -ip 'InitParty' -dn 'Debtor' -da 'NL28RABO0etc' -db 'RABONO2U' input-example.csv tmp.xml

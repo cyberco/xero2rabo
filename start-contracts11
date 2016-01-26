@@ -1,2 +1,2 @@
 #!/bin/sh
-python xero2rabo.py -id 'Contracts11' -ip 'Contracts11' -ed '2015-11-04' -dn 'Contracts11' -da 'NL96RABO0301540675' -db 'RABONO2U' ~/Downloads/in.CSV ~/Downloads/output-sepa.xml 
+python xero2rabo.py -id 'Contracts11' -ip 'Contracts11' -dn 'Contracts11' -da 'NL96RABO0301540675' -db 'RABONO2U' ~/Downloads/in.CSV ~/Downloads/output-sepa.xml 
