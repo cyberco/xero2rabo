@@ -120,4 +120,5 @@ if __name__ == '__main__':
     parser.add_argument('-db', '--debtor_bic', default='', help='Debtor BIC')
     args = parser.parse_args()
     tree = process_xml(args)
-    tree.write(args.output_file)
+    # html output ensures emtpy elements don't use shorthand notation (<el />), which would break
+    tree.write(args.output_file, method='html')
