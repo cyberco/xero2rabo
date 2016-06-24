@@ -38,7 +38,7 @@ def get_credit_transactions(filename):
         reader = csv.reader(input_file)
         for row in reader:
             row_dict = {'amount': row[0], 'iban': row[1], 'creditor_name': row[2], 'descr': row[4]}
-            if None in row_dict.values():
+            if '' in row_dict.values():
                 print('Missing value: {}'.format(row_dict))
                 sys.exit()
             yield {'amount': row[0], 'iban': row[1], 'creditor_name': row[2], 'descr': row[4]}
