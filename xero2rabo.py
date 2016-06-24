@@ -11,6 +11,7 @@ Xero's output format (CSV):
 An online tool for generating working SEPA documents can be found here:
 http://www.mobilefish.com/services/sepa_xml/sepa_xml.php
 """
+import sys
 import csv
 import xml.etree.ElementTree as ET
 from argparse import ArgumentParser
@@ -36,6 +37,10 @@ def get_credit_transactions(filename):
     with open(filename, 'rt') as input_file:
         reader = csv.reader(input_file)
         for row in reader:
+            row_dict = {'amount': row[0], 'iban': row[1], 'creditor_name': row[2], 'descr': row[4]}
+            if None in row_dict.values():
+                print('Missing value: {}'.format(row_dict))
+                sys.exit()
             yield {'amount': row[0], 'iban': row[1], 'creditor_name': row[2], 'descr': row[4]}
 
 
